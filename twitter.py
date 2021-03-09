@@ -10,7 +10,7 @@ consumer_key = 'vbcxLowTDEJNYUzIecZmmQ'
 consumer_secret = '1hUObCfVu6NP0dgIFBBMsk1kFNlR3xuslDA7hrer5s'
 access_token = '13959882-Ruzo4TYImfPGKbsqyCOJmcwioJ9XuuA2i3AaVzm7T'
 access_token_secret = 'DWe54s5cWbWGxTcM6XSEzLzBEmXMdqaHONA8WzYLDsKSu'
-COVID_API_URL = 'http://localhost:3000/report/'
+POLLUTION_API_URL = 'http://localhost:3000/report/'
 
 if __name__ == "__main__":
 
@@ -58,15 +58,10 @@ if __name__ == "__main__":
 #        print(data)
 #        print(tweet.coordinates)
         try:
-          resp = requests.post(COVID_API_URL, json=data)
+          resp = requests.post(POLLUTION_API_URL, json=data)
           if resp.status_code != 201:
-            raise ApiError('POST ' + COVID_API_URL + ' {}'.format(resp.status_code))
+            raise ApiError('POST ' + POLLUTION_API_URL + ' {}'.format(resp.status_code))
           print('Created stats. ID: {}'.format(resp.json()["id"]))
         except:
           print ('Cant connect to API server')
-          #print(resp)
           sys.exit()
-"""
-datetime.now() # date(2019, 4, 13)
-date = date + timedelta(days=1)
-"""
